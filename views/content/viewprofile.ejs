@@ -1,0 +1,25 @@
+<% layout("layouts/boilerplate") %>
+
+<% block('styles') %>
+     <link rel="stylesheet" href="/Styles/viewprofile.css">
+
+<div class="container box mt-4">
+    <div class="container info">
+        <ion-icon name="person-circle-outline" class="pfp"></ion-icon>
+        <div class="name">
+            <a href="/BlogO/profile/<%=logged_id%>" class="profile-link"><h1><%= username %></h1></a>
+        </div>
+    </div>
+
+    <div class="post container mb-5">
+        <h4>All Posts</h4>
+        <ul class="assets">
+        <% for( let i of get_user_post ) { %>
+                <li class="upload m-3">
+                    ↪<a href="/BlogO/post/<%= i._id %>" class="upload-link"><%= i.title %></a>
+                    <hr>
+                </li>
+        <% } %>
+        </ul>
+    </div>
+</div>

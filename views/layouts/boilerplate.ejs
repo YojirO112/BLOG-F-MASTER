@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <%- block('styles') %>
+</head>
+<body>
+    <main class="bar">
+        
+      <ul class="nav bg-info">
+        <li class="nav-item explore">
+          <a class="nav-link fs-1 text-light" aria-current="page" href="/BlogO/post">Blog<span class="text-warning text">O</span></a>
+        </li>
+
+        <li class="nav-item write mt-3 ms-auto">
+          <a class="nav-link" href="/BlogO/upload/<%=logged_id%>"><button type="button" class="btn btn-outline-primary btn-xs"><ion-icon name="pencil-outline" class="me-1 text-secondary"></ion-icon>Write</button></a>
+        </li>
+
+        
+
+        <li class="nav-item logout mt-4 me-1">
+          <form action="/user/logout" method="post">
+            <button type="submit" class="btn btn-outline-danger btn-xs"><ion-icon name="log-out-outline" class="me-1 text-secondary"></ion-icon>log-out</button>
+          </form>
+        </li>
+
+        <li class="profile nav-item">
+            <a class="nav-link link-body-emphasis link-offset-4 mt-3" href="/BlogO/profile/<%= logged_id %>"><ion-icon name="person-circle-outline" class="pfp-logo fs-1"></ion-icon></a>
+        </li>
+      </ul>
+
+        <%- body %>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

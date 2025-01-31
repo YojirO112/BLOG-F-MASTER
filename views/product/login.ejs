@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogO</title>
+    <link rel="stylesheet" href="/Styles/login.css">
+</head>
+<body>
+    <div class="box-log">
+
+        <% if(msg) { %>
+            <div class="pop-up">
+                <h4 class="text-danger"><%= msg %></h4>
+            </div>
+        <% } %>
+
+        <div class="top">
+            <h1>Blog<span class="highlight">O</span></h1>
+        </div>
+
+        <form action="/user/login/index" method="post">
+            <div class="uname">
+                <input type="text" name="username" id="username" placeholder="user_name">
+            </div>
+
+            <div class="pswd">
+                <input type="password" name="password" id="password" placeholder="password">
+            </div>
+
+            <div class="btns">
+                <button class="login">Login</button>
+            </div>
+
+            <div class="sign-box">
+                <hr>
+                <p>or</p>
+                <a href="/user/register">Sign-up</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+    

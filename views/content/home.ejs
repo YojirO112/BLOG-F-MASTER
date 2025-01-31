@@ -1,0 +1,46 @@
+<% layout("layouts/boilerplate") %>
+
+<% block('styles') %>
+     <link rel="stylesheet" href="/Styles/home.css">
+
+
+<% if (msg) { %>
+     <h3>
+          <div class="container mt-2 pop-up text-center "> <%= msg %> </div> 
+     </h3>          
+<% } %>
+
+<div class="container data">
+     <ul class="blog_data">
+          <% for( let i of user_data) { %>
+               <li> 
+                    <div class="container body">
+                         <div class="info">
+                              <ion-icon name="person-circle-outline" class="pfp"></ion-icon>
+                              <div class="container mini-info">
+                                   <a href="/BlogO/profile/<%=i.Owner._id%>" class="profile-link"><%=i.Owner.username%></a>
+                                   <p class="created">Just Now</p>
+                              </div>
+                         </div>
+
+                         <div class="user_blog container">
+                              <a href="/BlogO/post/<%= i._id %>" class="post-nav">
+                                   <div class="row">
+                                        <div class="col">
+                                             <div class="title">
+                                                  <p><%=i.title%></p>
+                                             </div>
+                                        </div>
+                                        <div class="col pic-div">
+                                             <img src="<%= i.images[0].url %>" class="post-pic">
+                                        </div>
+                                   </div>
+                              </a>
+                         </div>
+                    </div>
+               </li>
+          <% } %>
+     </ul>
+</div>
+
+<script src="home.js"></script>

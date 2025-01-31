@@ -1,0 +1,36 @@
+<% layout("layouts/boilerplate") %>
+
+<% block('styles') %>
+    <link rel="stylesheet" href="/Styles/viewpost.css">
+
+
+<div class="container tot-body">
+
+    <img src="<%= post_img %>" class="cover_img">
+
+    <div class="TAC">
+        <h1 class="title container mt-2">
+            <%= get_post.title %>
+        </h1>
+
+        <div class="mini-info mb-3">
+            <a href="/BlogO/profile/<%= logged_id %>" class="me-2 uname"><%= get_post.Owner.username %></a>
+             • <%= day_iso %>
+             <% if(allow) { %>
+                <a href="/BlogO/post/<%= get_post._id %>/edit" class="edits"><button class="me-2 ms-2 edit btn btn-primary btn-md">Edit</button></a>
+
+                <form action="/BlogO/post/<%= get_post._id %>/delete?_method=DELETE" method="post">
+                    <button type="submit" class="del btn btn-primary btn-md">Delete</button>
+                </form>
+             <% } %>
+        </div>
+    </div>
+
+    <hr>
+    
+    <div class="content container">
+        <%- get_post.context %>
+    </div>
+
+    <script src="/clients/home.js"></script>
+</div>

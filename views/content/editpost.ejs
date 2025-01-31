@@ -1,0 +1,22 @@
+<% layout("layouts/boilerplate") %>
+
+<% block('styles') %>
+    <link rel="stylesheet" href="/Styles/upload.css">
+
+<div class="container-fluid mt-5">
+    <form action="/BlogO/post/<%= get_post._id %>/update?_method=PUT"  method="post">
+
+        <div class="container-fluid Article_head">
+            <textarea name="title" id="title" cols="65" rows="2" placeholder="Article Title..." maxlength="115" ><%= get_post.title %></textarea>
+        </div>
+
+        <textarea name="context" id="default"><%= get_post.context %></textarea>
+
+        <div class="button-box mt-2">
+            <button type="submit" class="btn btn-primary update">Update</button>
+        </div>
+    </form>
+</div>
+
+<script src="/clients/tinymce/tinymce.min.js"></script>
+<script src="/clients/upload.js"></script>
